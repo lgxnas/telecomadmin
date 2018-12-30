@@ -1,0 +1,31 @@
+
+<html>
+<body>
+<input id="demo" onfocus="this.select();"></input>
+<button onclick="a()">GetPassWord</button>
+<p id="ps"></p>
+<script type="text/javascript">
+	function a()
+	{
+		var s=document.getElementById("demo").value;
+		var ars=s.split("&");
+		var pswd="";
+		for(var i=0;i<ars.length;i++)
+		{
+			if((57<Number(ars[i])&&Number(ars[i]<97))||Number(ars[i])>100)
+			{
+				ars[i]=Number(ars[i])-4;
+			}
+			else if(94<Number(ars[i])&&Number(ars[i])<101)
+			{
+				ars[i]=Number(ars[i])+22;
+			}
+
+			pswd=pswd+String.fromCharCode(ars[i]);
+		}
+		document.getElementById("ps").innerHTML=pswd;
+	}
+</script>
+
+</body>
+</html>
